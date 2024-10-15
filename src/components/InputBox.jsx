@@ -6,10 +6,10 @@ function InputBox({
     onAmountChange,
     onCurrencyChange,
     currencyOption = [],
-    selectCurrency = "usd",
+    selectCurrency = "",
     amountDisable = false,
-    currencyDisable = false
-    ,
+    currencyDisable = false,
+    className = "",
 }) {
 
     const amountInputId = useId()
@@ -40,8 +40,7 @@ function InputBox({
                         onCurrencyChange(e.target.value)}
                     disabled={currencyDisable}
                 >
-                    {currencyOption.map((currency)
-                        => (
+                    {currencyOption.map((currency) => (
                         <option key={currency}
                             value={currency}>
                             {currency}
