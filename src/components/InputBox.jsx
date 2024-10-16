@@ -1,4 +1,5 @@
 import React, { useId } from "react";
+import { currencyNames } from "../currencyNames";
 
 function InputBox({
     label,
@@ -12,6 +13,7 @@ function InputBox({
     className = "",
 }) {
 
+    console.log("InputBox props:", { label, amount, currencyOption, selectCurrency });
     const amountInputId = useId()
     return (
         <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
@@ -43,7 +45,7 @@ function InputBox({
                     {currencyOption.map((currency) => (
                         <option key={currency}
                             value={currency}>
-                            {currency}
+                            {currencyNames[currency] ? `${currencyNames[currency]} [${currency}]` : currency}
                         </option>
                     ))}
 
